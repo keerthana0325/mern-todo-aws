@@ -1,0 +1,12 @@
+X5CGcQ8anNmdR6pr
+
+
+user
+asdfghklqwertyuiop
+
+
+mongodb+srv://user:asdfghklqwertyuiop
+@cluster0.3dvao.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+
+MONGO_URI=mongodb+srv://user:asdfghklqwertyuiop@cluster0.3dvao.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0

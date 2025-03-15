@@ -1,0 +1,48 @@
+
+-steps to deply the mern stack apppication to the aws 
+
+-launch the ec2 instance
+-login with the ubuntu or whatever server you chose
+-(this time tht linux we chose is ubuntu)
+
+------------------------------------------------------
+ ubuntu 
+ sudo apt update 
+ mkdir mern-todo
+ cd mern-todo
+ mkdir backend (we ae making another folder in the mern-todo folder)
+ cd backend (imp , make sure to check the directory)
+ sudo apt install npm (later check , node -v , npm -v)
+ npm init -y (inside the backend folder)
+ npm install express mongoose dotenv cors
+ do ls and see
+
+ nano server.js (creating the file inside the backend folder) (//copy paste the server.js code here & save)
+
+ nano .env (paste the mongourl (which you got from the mongodb))
+ 
+ node server.js (//starts the backend at the given port , in our case it's 5000 , make sure the security groups to these ports 3000& 5000 are available)
+
+ //btw package.json in backend add "type: module" or just copy paste th package.json file  
+--------------------------------------------------------
+ 
+ connect through the same ec2 to another terminal (i.e through putty)
+
+ ubuntu 
+ ls
+ cd mern-todo
+ npx create-react-app client (this will create a folder "client"(frontend) inside the mern-todo )
+ cd client 
+ npm install axios
+ ls (you will find diff folders and files)
+ cd src 
+ ls (you'll find the "App.js" here)
+ nano App.js (copy paste the code from App.js)
+ npm start (it will start at 3000 port)
+
+//btw package.json in clinet modify the state or just copy paste th package.json file  
+
+
+
+ 
+
