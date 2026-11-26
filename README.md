@@ -1,3 +1,4 @@
+
 # MERN To-Do App | AWS EC2 Deployment
 
 A simple MERN stack To-Do application deployed manually on an AWS EC2 Ubuntu instance as a cloud deployment practice project.
@@ -47,3 +48,40 @@ Create a `.env` file inside the `backend` directory:
 
 ```env
 MONGO_URI=your_mongodb_connection_string
+```
+
+### Frontend
+
+Create a `.env` file inside the `client` directory:
+
+```env
+REACT_APP_API_URL=http://YOUR_EC2_PUBLIC_IP:5000
+```
+
+Do not commit environment files, credentials, or database connection strings.
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/` | Backend status |
+| GET | `/tasks` | Retrieve tasks |
+| POST | `/tasks` | Create a task |
+
+## Notes
+
+This was a hands-on deployment project focused on learning the MERN stack and deploying an application to AWS EC2.
+
+The deployment was performed manually. It did not include Docker, CI/CD automation, HTTPS configuration, or production process management.
+
+The repository is a cleaned-up project snapshot and may not contain all files required to run the frontend locally.
+
+## Learning Outcomes
+
+- Basic AWS EC2 instance setup
+- Linux command-line usage
+- Remote server access using SSH/PuTTY
+- Node.js backend setup
+- REST API integration between React and Express
+- MongoDB Atlas connectivity
+- Basic cloud deployment and networking concepts
