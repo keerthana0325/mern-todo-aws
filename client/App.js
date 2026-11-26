@@ -1,33 +1,47 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
 
   useEffect(() => {
-    // Fetch tasks from the backend
-    axios.get('http://3.81.213.158:5000/tasks')
+    axios.get(`${API_URL}/tasks`)
       .then(res => setTasks(res.data))
-      .catch(err => console.error(err));
+      .catch(err => console.error('Error fetching tasks:', err));
   }, []);
 
-  const addTask = () => {
-    const task = { title: newTask, completed: false };
-    axios.post('http://3.81.213.158:5000/tasks', task)
-      .then(res => setTasks([...tasks, res.data]))
-      .catch(err => console.error(err));
+  const addTask = async () => {
+    const title = newTask.trim();
+
+    if (!title) return;
+
+    try {
+      const res = await axios.post(`${API_URL}/tasks`, {
+        title,
+        completed: false,
+      });
+
+      setTasks(prevTasks => [...prevTasks, res.data]);
+      setNewTask('');
+    } catch (err) {
+      console.error('Error adding task:', err);
+    }
   };
 
   return (
     <div>
       <h1>Todo App</h1>
+
       <input
         type="text"
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
         placeholder="New task"
       />
+
       <button onClick={addTask}>Add Task</button>
 
       <ul>
@@ -38,4 +52,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
